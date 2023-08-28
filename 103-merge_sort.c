@@ -56,6 +56,8 @@ void _merge_sort(int array[], int lb, int ub)
 void merge_sort(int *array, size_t size)
 {
 	int lower_bound = 0, upper_bound = size - 1;
+	if (!array)
+		return;
 	_merge_sort(array, lower_bound, upper_bound);
 }
 
