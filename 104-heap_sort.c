@@ -27,7 +27,6 @@ void swap(int* max, int* i)
 void max_heapify(int array[], size_t size, size_t i)
 {
 	size_t max = i, left = 2 * i + 1, right = 2 * i + 2, j;
-	/*printf("==>%ld, %ld, %ld, %ld\n", i, max, left, right);*/
 
 	if (left < size && array[left] > array[max])
 		max = left;
@@ -55,17 +54,19 @@ void heap_sort(int array[], size_t size)
 {
 	size_t i, j;
 	array_size = size;
-	
-	for (i = size / 2 - 1; i > 0; i--)
-		max_heapify(array, size, i);
-	max_heapify(array, size, i);
-	
-	for (i = size - 1; i > 0; i--)
+	if (size > 1)
 	{
-		swap(&array[0], &array[i]);
-		for (j = 0; j < size - 1; j++)
-			printf("%d, ", array[j]);
-		printf("%d\n", array[j]);
-		max_heapify(array, i, 0);
+		for (i = size / 2 - 1; i > 0; i--)
+			max_heapify(array, size, i);
+		max_heapify(array, size, i);
+	
+		for (i = size - 1; i > 0; i--)
+		{
+			swap(&array[0], &array[i]);
+			for (j = 0; j < size - 1; j++)
+				printf("%d, ", array[j]);
+			printf("%d\n", array[j]);
+			max_heapify(array, i, 0);
+		}
 	}
 }
