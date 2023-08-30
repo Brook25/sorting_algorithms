@@ -4,9 +4,8 @@
 size_t array_size;
 /**
  * swap - swaps two values
- * @array: array with values to be swapped
- * @max: largest value index
- * @i: index of lower value
+ * @max: pointer to largest value
+ * @i: pointer to lower value
  * Return: Nothing
  */
 void swap(int* max, int* i)
